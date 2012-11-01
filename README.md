@@ -2,7 +2,7 @@
 
 The NicAr::Client gem allows to programatically extract information about any ".ar" (Argentina) domain name. 
 
-It uses the public information as is made available at the [Dirección Nacional del Registro de Dominios de Internet](http://www.nic.ar) via the third-party [nic!alert API](http://api.nicalert.com.ar) webservice.
+It uses the public information as is made available at the [Dirección Nacional del Registro de Dominios de Internet](http://www.nic.ar) website using the third-party [nic!alert API](http://api.nicalert.com.ar) webservice.
 
 ## Installation
 
@@ -136,9 +136,11 @@ Transactions can also be queried by it's unique identifier:
          "notes"=>"Se envio acuse de recibo al solicitante"
        }
 
-The full documentation of the nic!alert API is available at [api.nicalert.com.ar](http://api.nicalert.com.ar) if you want to write your own client, use any other language, or just use CURL in a RESTful way.
+## Hacking
 
-## Live sample
+The full documentation of the **nic!alert API** is available at [api.nicalert.com.ar](http://api.nicalert.com.ar) if you want to write your own client, use any other language, or just use CURL in a RESTful way.
+
+## Live examples
 
 A live test application is set up at the [nic!alert](http://www.nicalert.com.ar) website that allows for the automatic renewal of ".ar" domain names within their 30-day expiring period. The application also has the added feature of resolving the CAPTCHA challenge for the submission of the renewal request.
 

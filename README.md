@@ -22,6 +22,11 @@ Or install it yourself as:
 
 The NicAr::Client class supports lookups for domain names, domain transactions, entities, people, DNS servers.
 
+First, find out what kind of domain names you are allowed to looup.
+
+    NicAr::Client.domains
+    => [".com.ar", ".gov.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]
+
 All the following lookups will raise a NicAr::NotFound exception if the requested resource could not be found.
 
     NicAr::Client.domains("vivaserver.com.ar")
@@ -142,7 +147,13 @@ The full documentation of the **nic!alert API** is available at [api.nicalert.co
 
 ## Live examples
 
+### nic!alert
+
 A live test application is set up at the [nic!alert](http://www.nicalert.com.ar) website that allows for the automatic renewal of ".ar" domain names within their 30-day expiring period. The application also has the added feature of resolving the CAPTCHA challenge for the submission of the renewal request.
+
+### Nic.ar Whois domain
+
+A very nice Node.js application that provides "typeahead" domain searching capabilities. The wesite is [hosted at Heroku](http://nicar.herokuapp.com/) and it's [code at GitHub](https://github.com/danzajdband/nicar-whois). Credits to Dan Zajdband.
 
 ## Contributing
 

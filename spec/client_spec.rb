@@ -32,6 +32,13 @@ describe 'NicAr::Client' do
   end
 
   describe 'Domains lookups' do
+    it 'knows what kind of domains to lookup' do
+      stub_request(:get,/domains$/).to_return(:body => '[".com.ar", ".gov.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]')
+      result = NicAr::Client.domains
+      result.must_be_instance_of Array
+      result.wont_be_empty
+    end
+
     it 'raises on unexisting domains' do
       stub_request(:get,/domains\/hispafuentes\.com\.ar$/).to_return(:status => 404)
       proc { NicAr::Client.domains 'hispafuentes.com.ar' }.must_raise NicAr::NotFound

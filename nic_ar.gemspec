@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = NicAr::VERSION
   gem.authors       = ["Cristian R. Arroyo"]
   gem.email         = ["cristian.arroyo@vivaserver.com"]
-  gem.description   = %q{A simple client for ".ar" (Argentina) domain names lookup}
-  gem.summary       = %q{A simple client for ".ar" (Argentina) domain names lookup using the nic!alert API}
+  gem.description   = %q{A simple client for ".ar" (Argentina) domain names lookups}
+  gem.summary       = %q{A simple client for ".ar" (Argentina) domain names lookups using the nic!alert API}
   gem.homepage      = "https://github.com/vivaserver/nic_ar"
 
   gem.add_runtime_dependency 'rest-client', '~> 1.6'

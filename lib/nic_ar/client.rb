@@ -1,6 +1,12 @@
 module NicAr
+
+  # Simple HTTP client for accessing the public {nic!alert API}[http://api.nicalert.com.ar].
+  #
+  # Full API spec. available at {api.nicalert.com.ar}[http://api.nicalert.com.ar]
+  #
   class Client
     class << self
+      # Maps class methods to API calls
       def method_missing(name, *args)
         params = '/' + args.map { |p| CGI.escape(p) }.join('/') unless args.empty?
         resource = name.to_s
@@ -48,6 +54,8 @@ module NicAr
         #500: System Error
         when 500
           raise ServiceError, message
+        else
+          raise e
         end
       end
 
@@ -58,7 +66,6 @@ module NicAr
       end
 
       # override to support multiple API hosts
-
       def api_host  #:nodoc:
         API_URI
       end

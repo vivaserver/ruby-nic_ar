@@ -1,24 +1,10 @@
-# NicAr::Client
+= NicAr::Client
 
-The NicAr::Client gem allows to programatically extract information about any ".ar" (Argentina) domain name. 
+The NicAr::Client class allows to you programatically extract information about any ".ar" (Argentina) domain name. 
 
-It uses the public information as is made available at the [Dirección Nacional del Registro de Dominios de Internet](http://www.nic.ar) website using the third-party [nic!alert API](http://api.nicalert.com.ar) webservice.
+It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] website using the third-party {nic!alert API}[http://api.nicalert.com.ar] webservice.
 
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'nic_ar'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install nic_ar
-
-## Usage
+== Usage
 
 The NicAr::Client class supports lookups for domain names, domain transactions, entities, people, DNS servers.
 
@@ -141,21 +127,21 @@ Transactions can also be queried by it's unique identifier:
          "notes"=>"Se envio acuse de recibo al solicitante"
        }
 
-## Hacking
+== Hacking
 
-The full documentation of the **nic!alert API** is available at [api.nicalert.com.ar](http://api.nicalert.com.ar) if you want to write your own client, use any other language, or just use CURL in a RESTful way.
+The full documentation of the <b>nic!alert API</b> is available at {api.nicalert.com.ar}[http://api.nicalert.com.ar] if you want to write your own client, use any other language, or just use CURL in a RESTful way.
 
-## Live examples
+== Live examples
 
-### nic!alert
+=== nic!alert
 
-A live test application is set up at the [nic!alert](http://www.nicalert.com.ar) website that allows for the automatic renewal of ".ar" domain names within their 30-day expiring period. The application also has the added feature of resolving the CAPTCHA challenge for the submission of the renewal request.
+A live test application is set up at the {nic!alert}[http://www.nicalert.com.ar] website that allows for the automatic renewal of ".ar" domain names within their 30-day expiring period. The application also has the added feature of resolving the CAPTCHA challenge for the submission of the renewal request.
 
-### Nic.ar Whois domain
+=== Nic.ar Whois domain
 
-A very nice Node.js application that provides "typeahead" domain searching capabilities. The wesite is [hosted at Heroku](http://nicar.herokuapp.com/) and it's [code at GitHub](https://github.com/danzajdband/nicar-whois). Credits to Dan Zajdband.
+A very nice Node.js application that provides "typeahead" domain searching capabilities. The wesite is {hosted at Heroku}[http://nicar.herokuapp.com/] and it's {code at GitHub}[https://github.com/danzajdband/nicar-whois]. Credits to Dan Zajdband.
 
-## Contributing
+== Contributing
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)
@@ -163,6 +149,6 @@ A very nice Node.js application that provides "typeahead" domain searching capab
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
-## Copyright
+== Copyright
 
-Copyright (c)2012 [Cristian R. Arroyo](mailto:cristian.arroyo@vivasserver.com). MIT Licensed.
+Copyright (c)2012 {Cristian R. Arroyo}[mailto:cristian.arroyo@vivasserver.com]

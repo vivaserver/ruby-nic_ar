@@ -1,6 +1,14 @@
 require_relative 'spec_helper'
 
 describe 'NicAr::Client' do
+  it 'fixes respond_to?' do
+    assert NicAr::Client.respond_to? :dns_servers
+    assert NicAr::Client.respond_to? :domains
+    assert NicAr::Client.respond_to? :entities
+    assert NicAr::Client.respond_to? :people
+    assert NicAr::Client.respond_to? :transactions
+  end
+
   describe 'when receiving invalid requests' do
     it 'rejects single invalid requests' do
       stub_request(:get,/invalid_request$/).to_return(:status => 406)

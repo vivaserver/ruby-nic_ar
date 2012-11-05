@@ -18,13 +18,17 @@ module NicAr
         get "/#{resource}#{params}"
       end
 
+      def respond_to?(resource)
+        return true if %w[dns_servers domains entities people transactions].include? resource.to_s
+        super(resource)
+      end
+
       private
 
       def get(path)  #:nodoc:
         response = RestClient.get("#{api_host}/#{path}")
         raise NoContent if response.code == 204
         JSON.parse(response)
-
       rescue RestClient::Exception => e
         message = message_from(e.http_body)
 

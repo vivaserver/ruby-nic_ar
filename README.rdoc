@@ -149,6 +149,8 @@ But also note that a domain name without the "www." may or may not resolve in th
          "host"=>"roldan.nic.ar"
        }
 
+Lastly, status checking only works for ".ar" (Argentina) domain names.
+
 == Hacking
 
 The full documentation of the <b>nic!alert API</b> is available at {api.nicalert.com.ar}[http://api.nicalert.com.ar] if you want to write your own client, use any other language, or just use CURL in a RESTful way.

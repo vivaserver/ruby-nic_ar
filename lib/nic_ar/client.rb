@@ -20,7 +20,7 @@ module NicAr
 
       def respond_to?(resource)
         return true if %w[dns_servers domains entities people transactions].include? resource.to_s
-        super(resource)
+        super
       end
 
       private

@@ -1,5 +1,6 @@
 = NicAr::Client
 
+{<img src="https://travis-ci.org/vivaserver/nic_ar.png" />}[https://travis-ci.org/vivaserver/nic_ar]
 {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/vivaserver/nic_ar]
 
 The NicAr::Client class allows to you programatically extract information about any ".ar" (Argentina) domain name. 

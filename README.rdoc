@@ -80,6 +80,8 @@ All the following lookups will raise a NicAr::NotFound exception if the requeste
          }
        }
 
+=== Entities and people lookups
+
 All registered domains have a related entities (registrant/administrative contacts) and persons (responsible/technical contacts).
 
     NicAr::Client.entities("Dynamic DNS Network Services")
@@ -97,6 +99,8 @@ All registered domains have a related entities (registrant/administrative contac
     NicAr::Client.people("Andre Dure")
     => {"name"=>"Andre Dure", "handle"=>"NICAR-P425476"}
 
+=== DNS Servers lookups
+
 DNS Servers can also be queried by hostname or IP.
 
     NicAr::Client.dns_servers("ns1.mydyndns.org")
@@ -107,6 +111,8 @@ DNS Servers can also be queried by hostname or IP.
          "operator"=>"Andre Dure",
          "handle"=>"NICAR-H12587"
        }
+
+=== Domain transactions lookups
 
 If a domain name has no recent transactions, a NicAr::NoContent exception will be raised. Otherwise an array of recent transactions will be returned.
 
@@ -129,6 +135,8 @@ Transactions can also be queried by it's unique identifier:
          "status"=>"PENDIENTE",
          "notes"=>"Se envio acuse de recibo al solicitante"
        }
+
+=== Check a domain status
 
 You can also check if a given domain name resolves OK to it's DNS servers, thus effectively know if it's available online or not.
 
@@ -175,6 +183,10 @@ A very nice Node.js application that provides "typeahead" domain searching capab
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+== License
+
+NicAr::Client is released under the {MIT License}[LICENSE.txt]
 
 == Copyright
 

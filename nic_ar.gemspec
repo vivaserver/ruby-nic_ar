@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
 
   gem.add_runtime_dependency 'rest-client', '~> 1.6'
   gem.add_development_dependency 'minitest'
+  gem.add_development_dependency 'rake'
   gem.add_development_dependency 'webmock', '~> 1.8'
 
   gem.files         = `git ls-files`.split($/)

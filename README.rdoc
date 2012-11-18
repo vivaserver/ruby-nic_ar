@@ -186,7 +186,7 @@ A very nice Node.js application that provides "typeahead" domain searching capab
 
 == License
 
-NicAr::Client is released under the {MIT License}[link:LICENSE.txt]
+NicAr::Client is released under the {MIT License}[http://www.opensource.org/licenses/MIT].
 
 == Copyright
 

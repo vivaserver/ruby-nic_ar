@@ -18,6 +18,7 @@ module NicAr
         get "/#{resource}#{params}"
       end
 
+      # Acknowledge supported methods/API calls
       def respond_to?(resource)
         return true if %w[dns_servers domains entities people transactions].include? resource.to_s
         super

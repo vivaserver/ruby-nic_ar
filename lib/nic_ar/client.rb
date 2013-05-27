@@ -52,13 +52,15 @@ module NicAr
         #412: Precondition Failed
         when 412
           raise PreconditionError, message
-        #408: Request Timeout
-        #503: Service Unavailable
-        when 408, 503
-          raise TimeoutError, message
         #500: System Error
         when 500
           raise ServiceError, message
+        #408: Request Timeout
+        when 408
+          raise TimeoutError, message
+        #503: Service Unavailable
+        when 503
+          raise UnavailableError, message
         else
           raise e
         end

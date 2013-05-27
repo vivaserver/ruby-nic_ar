@@ -34,7 +34,10 @@ module NicAr
   # Exception for status HTTP 500: System Error
   class ServiceError < StandardError; end  
 
-  # Exception for status HTTP 408: Request Timeout
+  # Exception for status HTTP 503: Service Unavailable
+  class UnavailableError < StandardError; end  
+
+  # Exception for status HTTP 408: Request Timeout, 503: Service Unavailable
   class TimeoutError < StandardError; end  
 end
 

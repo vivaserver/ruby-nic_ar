@@ -20,11 +20,12 @@ All the following lookups will raise a NicAr::NotFound exception if the requeste
 
     NicAr::Client.domains("vivaserver.com.ar")
     => {
-         "available"=>false,
-         "delegated"=>true,
-         "expiring"=>false,
-         "pending"=>false,
-         "registered"=>true,
+         "status"=> {
+           "available"=>false,
+           "delegated"=>true,
+           "expiring"=>false,
+           "pending"=>false,
+           "registered"=>true},
          "name"=>"vivaserver",
          "domain"=>".com.ar",
          "created_on"=>"2004-11-18",
@@ -162,19 +163,9 @@ But also note that a domain name without the "www." may or may not resolve in th
 
 Lastly, status checking only works for ".ar" (Argentina) domain names.
 
-== Hacking
+== Full API reference
 
-The full documentation of the <b>nic!alert API</b> is available at {api.nicalert.com.ar}[http://api.nicalert.com.ar] if you want to write your own client, use any other language, or just use CURL in a RESTful way.
-
-== Live examples
-
-=== nic!alert
-
-A live test application is set up at the {nic!alert}[http://www.nicalert.com.ar] website that allows for the automatic renewal of ".ar" domain names within their 30-day expiring period. The application also has the added feature of resolving the CAPTCHA challenge for the submission of the renewal request.
-
-=== Nic.ar Whois domain
-
-A very nice Node.js application that provides "typeahead" domain searching capabilities. The wesite is {hosted at Heroku}[http://nicar.herokuapp.com/] and it's {code at GitHub}[https://github.com/danzajdband/nicar-whois]. Credits to Dan Zajdband.
+The full documentation of the {public nic!alert API}[http://api.nicalert.com.ar] is available at {http://api.nicalert.com.ar/docs}[http://api.nicalert.com.ar/docs] if you want to write your own client, use any other language, or just use CURL in a RESTful way.
 
 == Contributing
 
@@ -190,4 +181,4 @@ NicAr::Client is released under the {MIT License}[http://www.opensource.org/lice
 
 == Copyright
 
-Copyright (c)2012 {Cristian R. Arroyo}[mailto:cristian.arroyo@vivaserver.com]
+Copyright (c)2013 {Cristian R. Arroyo}[mailto:cristian.arroyo@vivaserver.com]

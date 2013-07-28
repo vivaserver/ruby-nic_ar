@@ -1,9 +1,11 @@
 module NicAr
 
-  # Simple HTTP client for accessing the public {nic!alert API}[http://api.nicalert.com.ar].
+  # NicAr::Client
+  # Simple HTTP client for accessing the {public nic!alert API}[http://api.nicalert.com.ar].
+  # Full API spec. available at {api.nicalert.com.ar/docs}[http://api.nicalert.com.ar/docs]
   #
-  # Full API spec. available at {api.nicalert.com.ar}[http://api.nicalert.com.ar]
-  #
+  # (c)2013 Cristian R. Arroyo <cristian.arroyo@vivaserver.com>
+
   class Client
     class << self
       # Maps class methods to API calls
@@ -34,32 +36,23 @@ module NicAr
         message = message_from(e.http_body)
 
         case e.http_code
-        #424: Failed Dependency
-        when 424
-          raise CaptchaError, message
-        #406: Not Acceptable
-        when 406  
-          raise RequestError, message
-        #417: Expectation Failed
-        when 417  
-          raise ExpectationError, message
-        #404: Not Found
-        when 404
-          raise NotFound
-        #400: Bad Request
-        when 400
+        when 400  # Bad Request
           raise ParameterError, message
-        #412: Precondition Failed
-        when 412
-          raise PreconditionError, message
-        #500: System Error
-        when 500
-          raise ServiceError, message
-        #408: Request Timeout
-        when 408
+        when 404  # Not Found
+          raise NotFound
+        when 406  # Not Acceptable
+          raise RequestError, message
+        when 408  # Request Timeout
           raise TimeoutError, message
-        #503: Service Unavailable
-        when 503
+        when 412  # Precondition Failed
+          raise PreconditionError, message
+        when 417  # Expectation Failed
+          raise ExpectationError, message
+        when 424  # Failed Dependency
+          raise CaptchaError, message
+        when 500  # System Error
+          raise ServiceError, message
+        when 503  # Service Unavailable
           raise UnavailableError, message
         else
           raise e

@@ -4,7 +4,7 @@ module NicAr
   # Simple HTTP client for accessing the {public nic!alert API}[http://api.nicalert.com.ar].
   # Full API spec. available at {api.nicalert.com.ar/docs}[http://api.nicalert.com.ar/docs]
   #
-  # (c)2013 Cristian R. Arroyo <cristian.arroyo@vivaserver.com>
+  # (c)2014 Cristian R. Arroyo <cristian.arroyo@vivaserver.com>
 
   class Client
     class << self
@@ -22,7 +22,7 @@ module NicAr
 
       # Acknowledge supported methods/API calls
       def respond_to?(resource)
-        return true if %w[dns_servers domains entities people transactions].include? resource.to_s
+        return true if %w[domains].include? resource.to_s  # old resources deprecated by new Nic.ar website
         super
       end
 

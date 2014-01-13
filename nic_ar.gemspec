@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["cristian.arroyo@vivaserver.com"]
   gem.description   = %q{A simple client for ".ar" (Argentina) domain names lookups}
   gem.summary       = %q{A simple client for ".ar" (Argentina) domain names lookups using the nic!alert API}
-  gem.homepage      = "https://github.com/vivaserver/nic_ar"
+  gem.homepage      = "https://github.com/vivaserver/ruby-nic_ar"
 
   gem.add_runtime_dependency 'rest-client', '~> 1.6'
   gem.add_development_dependency 'minitest'

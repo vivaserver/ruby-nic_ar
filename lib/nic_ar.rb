@@ -7,7 +7,7 @@ require 'rest_client'
 # NicAr is the _official_ Ruby gem for accessing the {nic!alert API}[http://api.nicalert.com.ar]. See the README.rdoc
 
 module NicAr
-  # The base URI for the nic!alert API.
+  # The base URI for the nic!alert API
   API_URI = 'http://api.nicalert.com.ar'
 
   # Exception for status HTTP 424: Failed Dependency

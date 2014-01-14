@@ -5,7 +5,7 @@
 
 The NicAr::Client class allows to you programatically extract information about any ".ar" (Argentina) domain name. 
 
-It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] website using the third-party {nic!alert API}[http://api.nicalert.com.ar] webservice.
+It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] (Nic.ar) website using the third-party {nic!alert API}[http://api.nicalert.com.ar] webservice.
 
 == Usage
 
@@ -14,7 +14,7 @@ The NicAr::Client class supports lookups for domain names, domain transactions, 
 First, find out what kind of domain names you are allowed to looup.
 
     NicAr::Client.domains
-    => [".com.ar", ".gov.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]
+    => [".com.ar", ".gob.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]
 
 All the following lookups will raise a NicAr::NotFound exception if the requested resource could not be found.
 
@@ -26,116 +26,38 @@ All the following lookups will raise a NicAr::NotFound exception if the requeste
            "expiring"=>false,
            "pending"=>false,
            "registered"=>true},
-         "name"=>"vivaserver",
-         "domain"=>".com.ar",
+         "name"=>"vivaserver.com.ar",
          "created_on"=>"2004-11-18",
          "expires_on"=>"2012-11-18",
          "contacts"=> {
            "registrant"=>{
              "name"=>"Cristian Renato Arroyo",
-             "occupation"=>"Diseno de Paginas Web",
-             "address"=>"Pje. Vucetich 676. Ciudad De Nieva",
-             "city"=>"S. S. de Jujuy",
-             "province"=>"Jujuy",
-             "zip_code"=>"4600",
-             "country"=>"Argentina",
-             "phone"=>"(0388)155827713",
-             "fax"=>"(0388)155827713"},
-           "responsible"=>{
-             "name"=>"Cristian Renato Arroyo",
-             "address"=>"Pje. Vucetich 676. Ciudad De Nieva.",
-             "city"=>"S. S. de jujuy",
-             "province"=>"Jujuy",
-             "zip_code"=>"4600",
-             "country"=>"Argentina",
-             "phone"=>"(0388)155827713",
-             "fax"=>"(0388)155827713",
-             "work_hours"=>"8am-1pm"},
-           "administrative"=>{
-             "name"=>"Dynamic DNS Network Services",
-             "address"=>"210 Park Ave. #267",
-             "city"=>"Worcester",
-             "province"=>"",
-             "zip_code"=>"MA 01609",
-             "country"=>"USA",
-             "phone"=>"1-508-798-2145",
-             "fax"=>"1-508-798-5748",
-             "activity"=>"Network Services"},
-           "technical"=>{
-             "name"=>"Andre Dure",
-             "address"=>"Humahuaca 1303",
-             "city"=>"Capital Federal",
-             "province"=>"Ciudad de Buenos Aires",
-             "zip_code"=>"C1405BIA",
-             "country"=>"Argentina",
-             "phone"=>"49588864",
-             "fax"=>"43335885",
-             "work_hours"=>"10 a 22"}
+             "activity"=>"Diseno de Paginas Web",
+             "addresss" =>{
+               "local" =>{
+                  "address"=>"Pje. Vucetich 676. Ciudad De Nieva",
+                  "city"=>"S. S. de Jujuy",
+                  "province"=>"Jujuy",
+                  "zip_code"=>"4600",
+                  "country"=>"Argentina",
+                  "phone"=>"(0388)155827713",
+                  "fax"=>"(0388)155827713"
+                }
+               }
+             }
+           "responsible"=>null,
+           "administrative"=>null,
+           "technical"=>null
            },
-         "dns_servers"=>{
-           "primary"=>{"host"=>"ns1.mydyndns.org", "ip"=>nil},
-           "secondary"=>{"host"=>"ns2.mydyndns.org", "ip"=>nil},
-           "alternate1"=>{"host"=>"ns3.mydyndns.org", "ip"=>nil},
-           "alternate2"=>{"host"=>"ns4.mydyndns.org", "ip"=>nil},
-           "alternate3"=>{"host"=>"ns5.mydyndns.org", "ip"=>nil}
-         }
+         "name_servers"=>[
+           {"id"=>0,"host"=>"ns1.mydyndns.org", "ip"=>nil},
+           {"id"=>1,"host"=>"ns2.mydyndns.org", "ip"=>nil},
+           {"id"=>2,"host"=>"ns3.mydyndns.org", "ip"=>nil},
+           {"id"=>4,"host"=>"ns4.mydyndns.org", "ip"=>nil},
+         ]
        }
 
-=== Entities and people lookups
-
-All registered domains have a related entities (registrant/administrative contacts) and persons (responsible/technical contacts).
-
-    NicAr::Client.entities("Dynamic DNS Network Services")
-    => {
-         "name"=>"Dynamic DNS Network Services",
-         "type"=>"ADMINISTRADORA",
-         "address"=>"210 Park Ave. #267",
-         "city"=>"Worcester",
-         "province"=>nil,
-         "country"=>"USA",
-         "activity"=>"Network Services",
-         "handle"=>"NICAR-E607791"
-       }
-
-    NicAr::Client.people("Andre Dure")
-    => {"name"=>"Andre Dure", "handle"=>"NICAR-P425476"}
-
-=== DNS Servers lookups
-
-DNS Servers can also be queried by hostname or IP.
-
-    NicAr::Client.dns_servers("ns1.mydyndns.org")
-    => {
-         "host"=>"ns1.mydyndns.org",
-         "ip"=>nil,
-         "owner"=>"Andre Dure",
-         "operator"=>"Andre Dure",
-         "handle"=>"NICAR-H12587"
-       }
-
-=== Domain transactions lookups
-
-If a domain name has no recent transactions, a NicAr::NoContent exception will be raised. Otherwise an array of recent transactions will be returned.
-
-    NicAr::Client.transactions("nazarenorock.com.ar")
-    => [{
-          "id"=>"REG18127727",
-          "created_at"=>"2012-10-03T15:11:01-03:00",
-          "description"=>"Registro de Nombre",
-          "status"=>"PENDIENTE",
-          "notes"=>"Se envio acuse de recibo al solicitante"
-        }]
-
-Transactions can also be queried by it's unique identifier:
-
-    NicAr::Client.transactions("REG18127727")
-    => {
-         "domain"=>"nazarenorock.com.ar",
-         "created_at"=>"2012-10-03T15:11:01-03:00",
-         "description"=>"Registro de Nombre",
-         "status"=>"PENDIENTE",
-         "notes"=>"Se envio acuse de recibo al solicitante"
-       }
+Please note that this output conforms to the latest update of the Nic.ar website (late 2013), which significantly reduces the contacts data details exposed, as opposed to the previous version.
 
 === Check a domain status
 
@@ -181,4 +103,4 @@ NicAr::Client is released under the {MIT License}[http://www.opensource.org/lice
 
 == Copyright
 
-Copyright (c)2013 {Cristian R. Arroyo}[mailto:cristian.arroyo@vivaserver.com]
+Copyright (c)2014 {Cristian R. Arroyo}[mailto:cristian.arroyo@vivaserver.com]

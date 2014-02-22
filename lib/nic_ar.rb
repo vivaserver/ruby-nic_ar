@@ -10,35 +10,32 @@ module NicAr
   # The base URI for the nic!alert API
   API_URI = 'http://api.nicalert.com.ar'
 
-  # Exception for status HTTP 424: Failed Dependency
-  class CaptchaError < StandardError; end  
-
-  # Exception for status HTTP 406: Not Acceptable
-  class RequestError < StandardError; end  
-
-  # Exception for status HTTP 417: Expectation Failed (available?, pending?)
-  class ExpectationError < StandardError; end  
-
-  # Exception for status HTTP 204: No Content
+  # status HTTP 204: No Content
   class NoContent < StandardError; end  
 
-  # Exception for status HTTP 404: Not Found
+  # status HTTP 400: Bad Request
+  class RequestError < StandardError; end  
+
+  # status HTTP 404: Not Found
   class NotFound < StandardError; end  
 
-  # Exception for status HTTP 400: Bad Request
-  class ParameterError < StandardError; end  
+  # status HTTP 408: Request Timeout
+  class TimeoutError < StandardError; end  
 
-  # Exception for status HTTP 412: Precondition Failed
+  # status HTTP 412: Precondition Failed
   class PreconditionError < StandardError; end  
 
-  # Exception for status HTTP 500: System Error
+  # status HTTP 417: Expectation Failed (available?, pending?)
+  class ExpectationError < StandardError; end  
+
+  # status HTTP 424: Failed Dependency
+  class CaptchaError < StandardError; end  
+
+  # status HTTP 500: System Error
   class ServiceError < StandardError; end  
 
-  # Exception for status HTTP 503: Service Unavailable
+  # status HTTP 503: Service Unavailable
   class UnavailableError < StandardError; end  
-
-  # Exception for status HTTP 408: Request Timeout, 503: Service Unavailable
-  class TimeoutError < StandardError; end  
 end
 
 require "nic_ar/client"

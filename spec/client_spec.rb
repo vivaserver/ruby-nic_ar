@@ -14,6 +14,10 @@ describe 'NicAr::Client' do
   end
 
   describe 'Domains lookups' do
+    it 'sends no token by default' do
+      subject.token.must_be_nil
+    end
+
     it 'knows what kind of domains to lookup' do
       stub_request(:get,/whois$/).to_return(:body => '[".com.ar", ".gob.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]')
       result = subject.whois

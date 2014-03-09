@@ -6,13 +6,15 @@ module NicAr
   # (c)2014 Cristian R. Arroyo <cristian.arroyo@vivaserver.com>
 
   class Client
+    attr_reader :token
+
     def initialize(token=nil)
       @token = token
     end
 
     def whois(name=nil)  #:nodoc:
       if name
-        request "whois/#{name}"
+        request "whois/#{name}" + (@token.nil? || @token.empty?? '' : "?token=#{@token}")
       else
         request "whois"
       end

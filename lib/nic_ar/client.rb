@@ -48,7 +48,8 @@ module NicAr
     end
 
     def message_from(response)  #:nodoc:
-      JSON.parse(response)['message']
+      result = JSON.parse(response)
+      result['error']['message'] if result.has_key? 'error'
     rescue
       nil
     end

@@ -10,11 +10,11 @@ module NicAr
       @token = token
     end
 
-    def domains(name=nil)  #:nodoc:
+    def whois(name=nil)  #:nodoc:
       if name
-        request "domains/#{name}"
+        request "whois/#{name}"
       else
-        request "domains"
+        request "whois"
       end
     end
 

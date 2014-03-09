@@ -8,7 +8,7 @@ require 'rest_client'
 
 module NicAr
   # The base URI for the nic!alert API
-  API_URI = 'http://api.nicalert.com.ar'
+  API_URI = 'http://api.nicalert.me/v1'
 
   # status HTTP 204: No Content
   class NoContent < StandardError; end  

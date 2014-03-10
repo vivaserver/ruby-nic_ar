@@ -5,21 +5,27 @@
 
 The NicAr::Client class allows to you programatically extract information about any ".ar" (Argentina) domain name. 
 
-It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] (Nic.ar) website using the third-party {nic!alert API}[http://api.nicalert.com.ar] webservice.
+It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] (NIC.ar) website using the third-party {nic!alert API}[http://api.nicalert.com.ar] webservice.
 
 == Usage
 
-The NicAr::Client class supports lookups for domain names.
+The client initialization is pretty straigt-forward, and the only argument is optional.
 
-First, find out what kind of domain names you are allowed to looup.
+    nic_ar = NicAr::Client.new
 
-    NicAr::Client.whois
+The optional argument is an API token that can be obtained to by-pass the CAPTCHA challenge that the NIC.ar website sometimes requests to you solve before answering your domain lookup. Please refer to the nic!alert API {official documentation}[http://api.nicalert.me/docs] for more details.
+
+    nic_ar = NicAr::Client.new("234d3cdf979e04db3d709ed8")
+
+The NicAr::Client class supports lookups for domain names. First, find out what kind of domain names you are allowed to looup.
+
+    nic_ar.whois
 
     => [".com.ar", ".gob.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]
 
 All the following lookups will raise a NicAr::NotFound exception if the requested resource could not be found.
 
-    NicAr::Client.whois("vivaserver.com.ar")
+    nic_ar.whois("vivaserver.com.ar")
 
     => {
          "status"=> {
@@ -65,7 +71,7 @@ Please note that this output conforms to the latest update of the Nic.ar website
 
 You can also check if a given domain name resolves OK to it's DNS servers, thus effectively know if it's available online or not.
 
-    NicAr::Client.status("www.nic.ar")
+    nic_ar.status("www.nic.ar")
 
     => { 
           "status" => {
@@ -79,7 +85,7 @@ You can also check if a given domain name resolves OK to it's DNS servers, thus 
 
 But also note that a domain name without the "www." may or may not resolve in the same way.
 
-    NicAr::Client.status("nic.ar")
+    nic_ar.status("nic.ar")
 
     => {
           "status" => {

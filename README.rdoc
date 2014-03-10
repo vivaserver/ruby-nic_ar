@@ -5,7 +5,7 @@
 
 The NicAr::Client class allows to you programatically extract information about any ".ar" (Argentina) domain name. 
 
-It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] (NIC.ar) website using the third-party {nic!alert API}[http://api.nicalert.com.ar] webservice.
+It uses the public information as is made available at the {Dirección Nacional del Registro de Dominios de Internet}[http://www.nic.ar] (NIC.ar) website using the third-party {nic!alert API}[http://api.nicalert.me] webservice.
 
 == Usage
 
@@ -13,7 +13,7 @@ The client initialization is pretty straigt-forward, and the only argument is op
 
     nic_ar = NicAr::Client.new
 
-The optional argument is an API token that can be obtained to by-pass the CAPTCHA challenge that the NIC.ar website sometimes requests to you solve before answering your domain lookup. Please refer to the nic!alert API {official documentation}[http://api.nicalert.me/docs] for more details.
+The optional argument is an API token that can be obtained to by-pass the CAPTCHA challenge that the NIC.ar website sometimes requests you to solve before answering your domain lookup. Please refer to the nic!alert API {official documentation}[http://api.nicalert.me/docs] for more details.
 
     nic_ar = NicAr::Client.new("234d3cdf979e04db3d709ed8")
 

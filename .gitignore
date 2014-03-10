@@ -5,6 +5,7 @@
 .config
 .DS_Store
 .ruby-version
+.vimrc
 .yardoc
 Gemfile.lock
 InstalledFiles

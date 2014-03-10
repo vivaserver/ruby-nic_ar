@@ -9,16 +9,18 @@ It uses the public information as is made available at the {Dirección Nacional 
 
 == Usage
 
-The NicAr::Client class supports lookups for domain names, domain transactions, entities, people, DNS servers.
+The NicAr::Client class supports lookups for domain names.
 
 First, find out what kind of domain names you are allowed to looup.
 
-    NicAr::Client.domains
+    NicAr::Client.whois
+
     => [".com.ar", ".gob.ar", ".int.ar", ".mil.ar", ".net.ar", ".org.ar", ".tur.ar"]
 
 All the following lookups will raise a NicAr::NotFound exception if the requested resource could not be found.
 
-    NicAr::Client.domains("vivaserver.com.ar")
+    NicAr::Client.whois("vivaserver.com.ar")
+
     => {
          "status"=> {
            "available"=>false,
@@ -64,24 +66,30 @@ Please note that this output conforms to the latest update of the Nic.ar website
 You can also check if a given domain name resolves OK to it's DNS servers, thus effectively know if it's available online or not.
 
     NicAr::Client.status("www.nic.ar")
-    => {
-         "domain"=>"www.nic.ar", 
-         "online"=>true, 
-         "offline"=>false, 
-         "ip"=>"200.16.109.19",
-         "host"=>"firpo.nic.ar"
-       }
+
+    => { 
+          "status" => {
+            "domain"=>"www.nic.ar", 
+            "online"=>true, 
+            "offline"=>false, 
+            "ip"=>"200.16.109.19",
+            "host"=>"firpo.nic.ar"
+          }
+        }
 
 But also note that a domain name without the "www." may or may not resolve in the same way.
 
     NicAr::Client.status("nic.ar")
+
     => {
-         "domain"=>"nic.ar",
-         "online"=>true,
-         "offline"=>false,
-         "ip"=>"200.16.109.25", 
-         "host"=>"roldan.nic.ar"
-       }
+          "status" => {
+            "domain"=>"nic.ar",
+            "online"=>true,
+            "offline"=>false,
+            "ip"=>"200.16.109.25", 
+            "host"=>"roldan.nic.ar"
+          }
+        }
 
 Lastly, status checking only works for ".ar" (Argentina) domain names.
 

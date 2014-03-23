@@ -101,7 +101,7 @@ Lastly, status checking only works for ".ar" (Argentina) domain names.
 
 == Full API reference
 
-The full documentation of the {public nic!alert API}[http://api.nicalert.com.ar] is available at {http://api.nicalert.com.ar/docs}[http://api.nicalert.com.ar/docs] if you want to write your own client, use any other language, or just use CURL in a RESTful way.
+The full documentation of the {public nic!alert API}[http://api.nicalert.me] is available at {http://api.nicalert.me/docs}[http://api.nicalert.me/docs] if you want to write your own client, use any other language, or just use CURL in a RESTful way.
 
 == Contributing
 

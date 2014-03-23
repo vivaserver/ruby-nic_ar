@@ -1,7 +1,7 @@
 module NicAr
   # NicAr::Client
   # Simple HTTP client for accessing the {public nic!alert API}[http://api.nicalert.me].
-  # Full API spec. available at {api.nicalert.com.ar/docs}[http://api.nicalert.me/docs]
+  # Full API spec. available at {api.nicalert.me/docs}[http://api.nicalert.me/docs]
   #
   # (c)2014 Cristian R. Arroyo <cristian.arroyo@vivaserver.com>
 

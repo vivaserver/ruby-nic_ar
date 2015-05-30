@@ -53,9 +53,6 @@ All the following lookups will raise a NicAr::NotFound exception if the requeste
                 }
                }
              }
-           "responsible"=>null,
-           "administrative"=>null,
-           "technical"=>null
            },
          "name_servers"=>[
            {"id"=>0,"host"=>"ns1.mydyndns.org", "ip"=>nil},
